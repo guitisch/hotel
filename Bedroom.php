@@ -23,13 +23,23 @@ public function get_room_number(){
     return $this->room_number;
 }
 public function get_status(){
-    return $this->status;
+    if($this->status == true){
+        return "réservée";
+    }else{
+        return "disponible";
+    }
+    
 }
 public function get_price(){
     return $this->price;
 }
 public function get_wifi(){
-    return $this->wifi;
+    if($this->wifi == true){
+        return "wifi : oui";
+    }else{
+        return "wifi : non";
+    }
+   
 }
 public function get_beds_nb(){
     return $this->beds_nb;

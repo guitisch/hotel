@@ -7,6 +7,7 @@ private DateTime $date_end;
 private Client $client;
 
 
+
 public function __construct($hotel, $bedroom, $date_start, $date_end, $client){
     $this->hotel = $hotel;
     $this->hotel ->add_reserv_hotel($this);
@@ -17,6 +18,7 @@ public function __construct($hotel, $bedroom, $date_start, $date_end, $client){
     $this->date_end = new DateTime($date_end);
     $this->client = $client;
     $this->client ->add_reserv_client($this);
+
     
     // $this->reservation = [];
 }
@@ -57,14 +59,8 @@ public function set_client($client){
 }
 
 
-// public function set_resevation(){
-// }
-// public function addreserv(Hotel $reserve){
-//     $this->reservation[] = $reserve;
-// }
-
 public function __toString()
 {//
-    return  $this->get_name()." ".$this->get_first_name()."- Chambre ".$this->get_room_number()."- du".$this->get_date_start()." au ". $this-> get_date_end();
+    return   $this->client->get_first_name()." ".$this->client->get_name()." - Chambre ". $this->bedroom->get_room_number()." - du ".$this->get_date_start()->format("d-m-Y")." au ". $this-> get_date_end()->format("d-m-Y");
 }
 }
